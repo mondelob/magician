@@ -1,0 +1,14 @@
+# Binaries
+magician
+
+# Object files
+*.o
+
+# Test files
+*_t
+
+# Prerequisites
+*.d
+
+# Swap files
+*.swp
