@@ -1,0 +1,52 @@
+/* image.cpp - handler for image files
+ * Copyright (C) 2018  Bruno Mondelo
+
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ */
+
+#ifndef image__
+#define image__
+
+#include <string>
+#include <fstream>
+
+class image {
+  private:
+    bool openned;
+    /* Openned flag */
+    std::string fn;
+    /* Name of the image file */
+    std::fstream fs;
+    /* File stream */
+    std::streampos pos;
+    /* Stream position */
+    int set_pos(std::streampos offset);
+    /* Sets stream position */
+  public:
+    image();
+    /* Constructor */
+    image(std::string fname);
+    /* Constructor */
+    ~image();
+    /* Destructor */
+    void open(std::string fname);
+    /* Opens file */
+    void close();
+    /* Closes file */
+    std::streamsize read(char *dest, int n, std::streampos offset);
+    /* Reads bytes from image */
+};
+/* Image class */
+
+#endif
