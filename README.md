@@ -1,0 +1,3 @@
+# magician
+
+> Magic number checker
